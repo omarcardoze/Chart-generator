@@ -61,6 +61,8 @@ function Home() {
         ],
     };
 
+    console.log('Home data: ', data.labels)
+
     return (
         <main>
             <Header />
@@ -68,17 +70,20 @@ function Home() {
 
                 <div className='flex flex-col sm:flex-row'>
                     <div className='md:mr-12'>
-                        {
-                            inputRows && <InputList
-                                inputRows={inputRows}
-                                setInputRows={setInputRows}
-                                InitialState={InitialState}
-                            />
-                        }
+                        <InputList
+                            inputRows={inputRows}
+                            setInputRows={setInputRows}
+                            InitialState={InitialState}
+                        />
+
                     </div>
 
                     <div ref={ref} className='w-96 h-96 bg-slate-50'>
-                        <Chart type='doughnut' data={data} />
+                        {
+                            data.labels[0] || data.datasets[0].data[0] ?
+                                <Chart type='doughnut' data={data} /> :
+                                <img src="example-chart.jpeg" alt="" />
+                        }
                     </div>
                 </div>
                 <button

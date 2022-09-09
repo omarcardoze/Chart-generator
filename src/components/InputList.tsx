@@ -8,7 +8,7 @@ export const InputList = ({ inputRows, setInputRows, InitialState }: any) => {
             ...copyRows[index],
             [name]: value
         }
-        setInputRows(copyRows)        
+        setInputRows(copyRows)
     }
 
     const handleOnAdd = () => {
