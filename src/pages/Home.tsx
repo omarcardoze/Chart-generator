@@ -81,7 +81,7 @@ function Home() {
                     <div ref={ref} className='w-96 h-96 bg-slate-50'>
                         {
                             data.labels[0] || data.datasets[0].data[0] ?
-                                <Chart type='pie' data={data} /> :
+                                <Pie data={data} /> :
                                 <img src="example-chart.jpeg" alt="" />
                         }
                     </div>
