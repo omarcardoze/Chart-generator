@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Chart, Pie, PolarArea } from 'react-chartjs-2';
+import { Chart, Pie, PolarArea, Doughnut } from 'react-chartjs-2';
 import { toJpeg } from 'html-to-image'
 
 import { InputList } from '../components/InputList';
@@ -81,7 +81,7 @@ function Home() {
                     <div ref={ref} className='w-96 h-96 bg-slate-50'>
                         {
                             data.labels[0] || data.datasets[0].data[0] ?
-                                <Chart type='doughnut' data={data} /> :
+                                <Chart type='pie' data={data} /> :
                                 <img src="example-chart.jpeg" alt="" />
                         }
                     </div>
