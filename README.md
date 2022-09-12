@@ -1,3 +1,3 @@
 # Chart Generator
 
-![Chart Generator](/assets/chartgenerator-screen.png)
+![Chart Generator](./src/assets/chartgenerator-screen.png)
