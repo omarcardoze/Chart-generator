@@ -1,20 +1,16 @@
-import { useCallback, useRef, useState } from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Chart, Pie, PolarArea, Doughnut } from 'react-chartjs-2';
+import { useState, useRef, useCallback } from 'react'
+
+import { InputData } from '../components/InputData';
+import { options } from '../utils/chartOptions'
+import Header from '../components/Header';
+import { Chart } from '../components/Chart';
 import { toJpeg } from 'html-to-image'
 
-import { InputList } from '../components/InputList';
-import Header from '../components/Header';
+export default function Home() {
 
-function Home() {
-    const InitialState = {
-        label: '',
-        data: ''
-    }
+    const [data, setData] = useState([])
+    const [labels, setLabels] = useState([])
 
-    const [inputRows, setInputRows] = useState([InitialState])
-
-    ChartJS.register(ArcElement, Tooltip, Legend);
     const ref = useRef<HTMLDivElement>(null)
 
     const onButtonClick = useCallback(() => {
@@ -34,69 +30,24 @@ function Home() {
             })
     }, [ref])
 
-    const data = {
-        labels: inputRows.map(l => l?.label),
-        datasets: [
-            {
-                label: 'MY CHART',
-                data: inputRows.map(d => d?.data),
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                ],
-                borderWidth: 4,
-            },
-        ],
-    };
-
-    console.log('Home data: ', data.labels)
-
     return (
-        <main>
+        <div className='w-full h-screen flex items-center'>
             <Header />
-            <div className='sm:h-screen h-auto flex flex-col gap-8 justify-center items-center'>
 
-                <div className='flex flex-col sm:flex-row'>
-                    <div className='md:mr-12'>
-                        <InputList
-                            inputRows={inputRows}
-                            setInputRows={setInputRows}
-                            InitialState={InitialState}
-                        />
-
-                    </div>
-
-                    <div ref={ref} className='w-96 h-96 bg-slate-50'>
-                        {
-                            data.labels[0] || data.datasets[0].data[0] ?
-                                <Pie data={data} /> :
-                                <img src="example-chart.jpeg" alt="" />
-                        }
-                    </div>
-                </div>
-                <button
-                    className={`py-2 px-4 ${inputRows[0]?.data === '' ? 'bg-slate-600' : 'bg-blue-500'}  text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 cursor-pointer`}
-                    onClick={onButtonClick}
-                >
-                    Exportar
+            <aside className='w-80 h-screen border justify-center'>
+                <button onClick={onButtonClick} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center absolute bottom-0 ml-5 mb-10 ">
+                    <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
+                    <span>Exportar</span>
                 </button>
-            </div>
-        </main>
+            </aside>
 
+            <div className='w-full flex justify-center flex-col items-center'>
+                <InputData setData={setData} setLabels={setLabels} />
+
+                <div className='bg-white w-96 mt-10' ref={ref}>
+                    <Chart data={data} labels={labels} />
+                </div>
+            </div>
+        </div>
     )
 }
-
-export default Home
-
