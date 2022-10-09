@@ -1,13 +1,11 @@
 import { useState, useRef, useCallback } from 'react'
 
-import { InputData } from '../components/InputData';
-import { options } from '../utils/chartOptions'
+import InputData  from '../components/InputData';
 import Header from '../components/Header';
-import { Chart } from '../components/Chart';
+import Chart from '../components/Chart';
 import { toJpeg } from 'html-to-image'
 
 export default function Home() {
-
     const [data, setData] = useState([])
     const [labels, setLabels] = useState([])
 
