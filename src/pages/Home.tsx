@@ -6,8 +6,8 @@ import Chart from '../components/Chart';
 import { toJpeg } from 'html-to-image'
 
 export default function Home() {
-    const [data, setData] = useState([])
-    const [labels, setLabels] = useState([])
+    const [data, setData] = useState([100,200,300])
+    const [labels, setLabels] = useState(['A','B','C'])
 
     const ref = useRef<HTMLDivElement>(null)
 

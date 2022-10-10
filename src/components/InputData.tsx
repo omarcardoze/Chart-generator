@@ -19,7 +19,7 @@ const InputData = ({ setData, setLabels }) => {
                 <textarea
                     name="data"
                     id="data"
-                    placeholder='Your data here example 122,341,233'
+                    placeholder='Your data here example 100,200,300'
                     rows={5}
                     cols={33}
                     className='m-5 p-5'
