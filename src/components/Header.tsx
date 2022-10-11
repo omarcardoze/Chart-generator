@@ -5,7 +5,7 @@ export default function Header() {
       <nav className="container mx-auto flex flex-row justify-between">
         <h1 className="text-2xl">Chart Generator</h1>
         <a href="https://github.com/OmarCardoze/Chart-generator" className="flex justify-center items-center gap-1" target="_blank">
-          <span className="text-lg">Github</span>
+          <span className="text-lg">GitHub</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" focusable="false">
             <rect width="256" height="256" fill="none"></rect>
             <polyline points="216 100 216 40 156 40" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="16"></polyline>
