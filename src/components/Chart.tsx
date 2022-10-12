@@ -18,12 +18,12 @@ const Chart = ({ data, labels }) => {
                 label: '',
                 data: data.map(d => Number(d)),
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
+                    '#FF715B',
+                    '#F9CB40',
+                    '#BCED09',
+                    '#2F52E0',
+                    '#FF8427',
+                    '#F038FF',
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
@@ -33,7 +33,7 @@ const Chart = ({ data, labels }) => {
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)',
                 ],
-                borderWidth: 1,
+                borderWidth: 3,
             }
         ],
     };

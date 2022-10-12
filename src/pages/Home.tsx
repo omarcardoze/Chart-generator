@@ -29,11 +29,17 @@ export default function Home() {
     }, [ref])
 
     return (
-        <div className='w-full h-screen flex items-center'>
-            <Header />
+        <>
+        <Header />
+        <div className='w-full h-screen grid grid-cols-[200px_minmax(900px,_1fr)_100px] bg-gray-100'>
 
-            <aside className='w-80 h-screen border justify-center'>
-                <button onClick={onButtonClick} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center absolute bottom-0 ml-5 mb-10 ">
+            <aside className='w-80 h-auto border justify-center bg-white p-10'>
+                    {/* <select id="cars">
+                        <option value="volvo">Bar</option>
+                        <option value="saab">Line</option>
+                    </select> */}
+
+                <button onClick={onButtonClick} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center absolute bottom-0  mb-10 ">
                     <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
                     </svg>
@@ -49,5 +55,6 @@ export default function Home() {
                 </div>
             </div>
         </div>
+        </>
     )
 }

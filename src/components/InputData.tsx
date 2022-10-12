@@ -13,7 +13,7 @@ const InputData = ({ setData, setLabels }) => {
     }, [])
 
     return (
-        <section className="flex bg-gray-50 w-3/6 justify-center items-center flex-col">
+        <section className="flex bg-gray-50 w-3/6 justify-center items-center flex-col border">
             <p className="text-slate-800 text-center mt-5">Import your data values seperated by commas</p>
             <div>
                 <textarea
@@ -22,7 +22,7 @@ const InputData = ({ setData, setLabels }) => {
                     placeholder='Your data here example 100,200,300'
                     rows={5}
                     cols={33}
-                    className='m-5 p-5'
+                    className='m-5 p-5 border'
                     onChange={handleData}
                 />
 
@@ -32,7 +32,7 @@ const InputData = ({ setData, setLabels }) => {
                     placeholder='Your labels here example A,B,C'
                     rows={5}
                     cols={33}
-                    className='m-5 p-5'
+                    className='m-5 p-5 border'
                     onChange={handleLabels}
                 />
             </div>
