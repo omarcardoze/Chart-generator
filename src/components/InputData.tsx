@@ -1,14 +1,19 @@
 import { useCallback } from "react"
 
-const InputData = ({ setData, setLabels }) => {
+type Props = {
+    setData: (data: string[]) => void,
+    setLabels: (labels: string[]) => void
+}
 
-    const handleData = useCallback((event: any) => {
-        const data = event.target.value
+const InputData: React.FC<Props> = ({ setData, setLabels }) => {
+
+    console.log(setData)
+
+    const handleData = useCallback((data: string) => {
         setData(data.split(','))
     }, [])
 
-    const handleLabels = useCallback((event: any) => {
-        const labels = event.target.value
+    const handleLabels = useCallback((labels: string) => {
         setLabels(labels.split(','))
     }, [])
 
@@ -23,7 +28,7 @@ const InputData = ({ setData, setLabels }) => {
                     rows={5}
                     cols={33}
                     className='m-5 p-5 border'
-                    onChange={handleData}
+                    onChange={(event) => handleData(event.target.value)}
                 />
 
                 <textarea
@@ -33,7 +38,7 @@ const InputData = ({ setData, setLabels }) => {
                     rows={5}
                     cols={33}
                     className='m-5 p-5 border'
-                    onChange={handleLabels}
+                    onChange={(event) => handleLabels(event.target.value)}
                 />
             </div>
         </section>
