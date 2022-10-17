@@ -48,7 +48,9 @@ export default function Home() {
             </aside>
 
             <div className='w-full flex justify-center flex-col items-center'>
+                {/* <InputData setData={setData} setLabels={setLabels} /> */}
                 <InputData setData={setData} setLabels={setLabels} />
+
 
                 <div className='bg-white w-96 mt-10' ref={ref}>
                     <Chart data={data} labels={labels} />

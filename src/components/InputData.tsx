@@ -1,7 +1,7 @@
 import { useCallback } from "react"
 
 type Props = {
-    setData: (data: string[]) => void,
+    setData: (data: any[]) => void,
     setLabels: (labels: string[]) => void
 }
 
