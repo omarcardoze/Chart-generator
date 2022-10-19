@@ -6,9 +6,6 @@ type Props = {
 }
 
 const InputData: React.FC<Props> = ({ setData, setLabels }) => {
-
-    console.log(setData)
-
     const handleData = useCallback((data: string) => {
         setData(data.split(','))
     }, [])

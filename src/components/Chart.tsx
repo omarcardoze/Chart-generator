@@ -1,16 +1,23 @@
-
 import {
-    Chart as ChartJS,
-    ArcElement,
-    Tooltip,
-    Legend,
+    Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Filler,
 } from 'chart.js';
-import { Bar, Doughnut } from 'react-chartjs-2';
+import { Doughnut, Pie, Line } from 'react-chartjs-2';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Filler,);
 
-const Chart = ({ data, labels }) => {
+const Chart = ({ data, labels, chartType }) => {
 
+    console.log(chartType)
     const dataChart = {
         labels,
         datasets: [
@@ -38,9 +45,9 @@ const Chart = ({ data, labels }) => {
         ],
     };
 
-    return (
-        <Doughnut data={dataChart} />
-    )
+    if (chartType === 'line') return <Line data={dataChart} />
+    if (chartType === 'pie') return <Pie data={dataChart} />
+    if (chartType === 'doughnut') return <Doughnut data={dataChart} />
 }
 
 export default Chart 
