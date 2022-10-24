@@ -9,7 +9,7 @@ import { toJpeg } from 'html-to-image'
 export default function Home() {
 	const [data, setData] = useState([100, 200, 300])
 	const [labels, setLabels] = useState(['A', 'B', 'C'])
-	const [chartType, setChartType] = useState('line')
+	const [chartType, setChartType] = useState('pie')
 
 	const ref = useRef<HTMLDivElement>(null)
 
